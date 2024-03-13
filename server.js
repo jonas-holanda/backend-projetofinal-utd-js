@@ -6,7 +6,7 @@ let router = require('./app/routes/routes.js');
 const cors = require('cors');
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://painel-de-clientes.vercel.app/',
     optionsSuccessStatus: 200
 }
 
