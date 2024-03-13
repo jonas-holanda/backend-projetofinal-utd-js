@@ -5,12 +5,22 @@ const Cliente = db.Cliente;
 let router = require('./app/routes/routes.js');
 const cors = require('cors');
 
-const corsOptions = {
-    origin: 'https://painel-de-clientes.vercel.app',
-    optionsSuccessStatus: 200
-}
+const allowedOrigins = ['http://localhost:5173','https://painel-de-clientes.vercel.app'];
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 app.use(express.json());
 app.use(express.static('resources'));
 app.use('/', router);
