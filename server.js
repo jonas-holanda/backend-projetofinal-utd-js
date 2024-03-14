@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const db = require('./app/config/db.config.js');
-const Cliente = db.Cliente;
+// const Cliente = db.Cliente;
 let router = require('./app/routes/routes.js');
 const cors = require('cors');
 
@@ -9,11 +9,8 @@ const allowedOrigins = ['http://localhost:5173','https://painel-de-clientes.verc
 
 app.use(cors({
   origin: function(origin, callback){
-    // allow requests with no origin 
-    // (like mobile apps or curl requests)
-    if(!origin) return callback(null, true);
     if(allowedOrigins.indexOf(origin) === -1){
-      var msg = 'The CORS policy for this site does not ' +
+      const msg = 'The CORS policy for this site does not ' +
                 'allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
@@ -26,9 +23,9 @@ app.use(express.static('resources'));
 app.use('/', router);
 
 const server = app.listen(8080, function () {
-    let host = server.address().address
-    let port = server.address().port
-    console.log("App está rodando no endereço http://%s:%s", host, port);
+    let host = server.address().address;
+    let port = server.address().port;
+    console.log(`App está rodando no endereço http://${host}:${port}`);
 });
 
 // db.sequelize.sync({ force: true }).then(() => {
