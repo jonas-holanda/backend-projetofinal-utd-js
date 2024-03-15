@@ -29,17 +29,27 @@
 
 # Rotas da API
 
+### ⚠️ Importante
+**Como esse projeto está rodando na web e com um banco de dados de teste, mas funcional. Eu tirei o acesso total do cors de todos os dispositivos, só liberei para o frontend que também está rodando na web, e para o ambiente local, caso você queira testar localmente. Criei também um .env-example com um exemplo das variáveis de ambiente.**
+
+**⚠️⚠️ Para você usar localmente o projeto, na sua aplicação de testes de API, você terá que passar um Header, com a key: `origin` e o value: `http://localhost:8080`, isso em todas as requisições abaixo.**
+
+**Headers ⬇️**
+Key | Value
+:--:|:---:
+`origin` | `http://localhost:8080`
+
 ## Listagem de todos os Clientes
 
-- **GET** - `https://backend-projetofinal-utd-js.vercel.app/api/clientes`
+- **GET** - `http://localhost:8080/api/clientes`
 
 ## Listagem de um Cliente por ID
 
-- **GET** - `https://backend-projetofinal-utd-js.vercel.app/api/cliente/{id}`
+- **GET** - `http://localhost:8080/api/cliente/{id}`
 
 ## Adicionar Cliente
 
-- **POST** - `https://backend-projetofinal-utd-js.vercel.app/api/cliente`
+- **POST** - `http://localhost:8080/api/cliente`
 - **BODY** -
 ```json
 {
@@ -50,7 +60,7 @@
 ```
 ## Alterar Cliente
 
-- **PUT** - `https://backend-projetofinal-utd-js.vercel.app/api/cliente`
+- **PUT** - `http://localhost:8080/api/cliente`
 - **BODY** -
 ```json
 {
@@ -63,7 +73,7 @@
 
 ## Excluir Cliente
 
-- **DELETE** - `https://backend-projetofinal-utd-js.vercel.app/api/cliente/{id}`
+- **DELETE** - `http://localhost:8080/api/cliente/{id}`
 
 
 <p align="center">
