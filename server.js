@@ -5,7 +5,7 @@ const db = require('./app/config/db.config.js');
 let router = require('./app/routes/routes.js');
 const cors = require('cors');
 
-const allowedOrigins = ['http://localhost:5173','https://painel-de-clientes.vercel.app'];
+const allowedOrigins = ['http://localhost:8080','http://localhost:5173','https://painel-de-clientes.vercel.app'];
 
 app.use(cors({
   origin: function(origin, callback){
@@ -23,8 +23,8 @@ app.use(express.static('resources'));
 app.use('/', router);
 
 const server = app.listen(8080, function () {
-    let host = server.address().address;
-    let port = server.address().port;
+    const host = server.address().address;
+    const port = server.address().port;
     console.log(`App está rodando no endereço http://${host}:${port}`);
 });
 
