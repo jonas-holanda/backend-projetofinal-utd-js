@@ -26,6 +26,7 @@
 **Também instalei o pacote dotenv para a manipulação das variáveis de ambiente.**
 **Através do pacote dotenv consegui acessar mais facilmente as variáveis de ambiente na hora do deploy na Vercel, passando as credenciais do banco de dados mysql(gratuito que eu havia criado para o projeto) de uma forma segura.**
 
+### ‼️ Aviso: O serviço web gratuito de MYSQL que eu utilizava expirou, por isso não está dando para utilizar o backend para mexer no CRUD do sistema online. 
 
 # Rotas da API
 
